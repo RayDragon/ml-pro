@@ -4,8 +4,10 @@ class Source:
     def __init__(self):
         ''
         self.file = 'data/sources.json'
-        f = open(file, 'r')
-        data = json.loads(f.read())
+        f = open(self.file, 'r')
+        data = f.read()
+        if data=='': data=[]
+        else: data = json.loads(data)
         f.close()
         self.data = data
 
@@ -21,7 +23,7 @@ class Source:
                 return 0, 'name exists'
         
         d = {
-            values[0]:values[1].split(',')
+            values[0]:[x.strip() for x in values[1].split(',')]
         }
         self.data.append(d)
     

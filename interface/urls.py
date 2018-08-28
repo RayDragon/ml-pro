@@ -20,5 +20,8 @@ urlpatterns = [
     path('admin/', admin.site.urls),
     path('csrf', token),
     path('add_task', add_tasks),
+    path('get_task', get_tasks),
+    path('file_upload', file_upload),
+    path('predict', predict),
     path('', home)
 ]
